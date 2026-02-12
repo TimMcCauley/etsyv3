@@ -3,10 +3,11 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "etsyv3"
-version = "0.0.7"
+name = "etsyv3-api"
+version = "0.0.8"
 authors = [
-    { name = "anitabyte", email = "anita@anitabyte.xyz" },
+    { name = "timmccauley", email = "tim@boundlessmaps.com" },
+    { name = "anitabyte", email = "anita@anitabyte.xyz" }
 ]
 description = "A package to support the Etsy Open API v3"
 readme = "README.md"
@@ -38,9 +39,12 @@ test = [
 [tool.setuptools]
 packages = ["etsyv3", "etsyv3.models", "etsyv3.enums", "etsyv3.util", "etsyv3.util.auth"]
 
+[tool.pytest.ini_options]
+addopts = "--ignore=tests/integration"
+
 [tool.isort]
 src_paths = ["etsyv3", "tests"]
 
 [project.urls]
-"Homepage" = "https://github.com/anitabyte/etsyv3"
-"Bug Tracker" = "https://github.com/anitabyte/etsyv3/issues"
+"Homepage" = "https://github.com/timmccauley/etsyv3"
+"Bug Tracker" = "https://github.com/timmccauley/etsyv3/issues"

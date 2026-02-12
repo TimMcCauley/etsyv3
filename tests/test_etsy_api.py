@@ -6,9 +6,10 @@ import tests.mock_helpers
 from etsyv3 import EtsyAPI
 from etsyv3.etsy_api import ETSY_API_BASEURL, Unauthorised
 
-EXPIRY_FUTURE = datetime.utcnow() + timedelta(hours=1)
-EXPIRY_PAST = datetime.utcnow() - timedelta(hours=1)
+EXPIRY_FUTURE = datetime.now() + timedelta(hours=1)
+EXPIRY_PAST = datetime.now() - timedelta(hours=1)
 KEYSTRING = ""
+SHARED_SECRET = ""
 TOKEN = ""
 REFRESH_TOKEN = ""
 
@@ -45,7 +46,7 @@ class TestEtsyAPI(unittest.TestCase):
         "requests.Session.get", side_effect=tests.mock_helpers.mocked_requests_get
     )
     def test_get_user_unauthorised(self, mock_get):
-        etsy = EtsyAPI(KEYSTRING, TOKEN, REFRESH_TOKEN, EXPIRY_FUTURE, fn_save)
+        etsy = EtsyAPI(KEYSTRING, SHARED_SECRET, TOKEN, REFRESH_TOKEN, EXPIRY_FUTURE, fn_save)
         with self.assertRaises(Unauthorised) as context:
             etsy.get_user("UNAUTHORIZED")
 
@@ -53,6 +54,6 @@ class TestEtsyAPI(unittest.TestCase):
         "requests.Session.get", side_effect=tests.mock_helpers.mocked_requests_get
     )
     def test_get_self(self, mock_get):
-        etsy = EtsyAPI(KEYSTRING, TOKEN, REFRESH_TOKEN, EXPIRY_FUTURE, fn_save)
+        etsy = EtsyAPI(KEYSTRING, SHARED_SECRET, TOKEN, REFRESH_TOKEN, EXPIRY_FUTURE, fn_save)
         etsy.get_authenticated_user()
         mock_get.assert_called()

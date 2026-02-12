@@ -1,4 +1,9 @@
-# Etsyv3 
+# Etsyv3
+
+[![PyPI version](https://img.shields.io/pypi/v/etsyv3-api)](https://pypi.org/project/etsyv3-api/)
+[![Python versions](https://img.shields.io/pypi/pyversions/etsyv3-api)](https://pypi.org/project/etsyv3-api/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ## What it is
 
 Python 3 client for the [Etsy Open API v3](https://developer.etsy.com/documentation/reference).
